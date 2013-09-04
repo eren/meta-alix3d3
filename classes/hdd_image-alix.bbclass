@@ -106,4 +106,6 @@ IMAGE_CMD_alix-hddimage() {
 #}
 #addtask create_syslinuxcfg before do_rootfs
 
-do_rootfs[depends] += "${INITRD_IMAGE}:do_rootfs"
+do_rootfs[depends] += "${INITRD_IMAGE}:do_rootfs \
+                        syslinux-native:do_populate_sysroot \
+                        syslinux:do_populate_sysroot"
